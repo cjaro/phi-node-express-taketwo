@@ -58,9 +58,14 @@ app.get('/fish/last/name', function(req, res){
 
 app.post('/fish/new', function(req, res){
   var newFish = req.body;
+  if(newFish.name !== ''){
   fishiesList.push(newFish); //throw that shit on the new fish object
   // console.log(fishiesList);
   res.sendStatus(200);
+}else{
+  res.sendStatus(400);
+}
+
 });
 
 
